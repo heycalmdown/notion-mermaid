@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div#abc
+    | 여기 그려주세요
+
+  script.
+    mermaid.initialize({
+      startOnLoad:true
+    });
+    (function(){
+      const container = document.getElementById("abc");
+      const graphDefinition = '!{graphDefinition}';
+      const cb = function(svgGraph){
+        container.innerHTML = svgGraph;
+      };
+      mermaid.render('id1',graphDefinition,cb);
+    })();
+
