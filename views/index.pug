@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  button#refresh(onclick="refresh()") refresh
   div#abc
     | 여기 그려주세요
 
@@ -8,6 +9,9 @@ block content
     mermaid.initialize({
       startOnLoad:true
     });
+    function refresh() {
+      location.reload();
+    }
     (function(){
       const container = document.getElementById("abc");
       const graphDefinition = '!{graphDefinition}';
