@@ -1,9 +1,18 @@
 extends layout
 
 block content
-  button#refresh(onclick="refresh()") refresh
-  div#abc
-    | 여기 그려주세요
+  style(type="text/css").
+    #root button#refresh {
+      visibility: hidden
+    }
+    #root:hover button#refresh {
+      visibility: visible
+    }
+
+  div#root
+    button#refresh(onclick="refresh()") refresh
+    div#abc
+      | 여기 그려주세요
 
   script.
     mermaid.initialize({
