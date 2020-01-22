@@ -41,7 +41,6 @@ function toDashID(str: string) {
 }
 
 
-/* GET home page. */
 router.get('/', async (req, res, next) => {
   const blockId = toDashID('cc11a522e71f49b09a1fb92960c845a3');
   const result = await notion.loadPageChunk({
@@ -55,4 +54,27 @@ router.get('/', async (req, res, next) => {
   const text = (sourceBlock.value as any).properties.title[0][0];
   const text2 = text.replace(/\n/g, '\\n');
   res.render('index', { graphDefinition: text2 });
+});
+
+router.get('/:pageid/:blockid', async (req, res, next) => {
+  const blockId = toDashID(req.params.blockid);
+  try {
+    const result = await notion.loadPageChunk({
+      pageId: toDashID(req.params.pageid),
+      limit: 10,
+      cursor: { stack: [] },
+      chunkNumber: 0,
+      verticalColumns: false
+    });
+    const sourceBlock = result.recordMap.block[blockId];
+    if (!sourceBlock) return res.send('invalid blockId ' + req.params.blockid);
+    const text = (sourceBlock.value as any).properties.title[0][0];
+    const text2 = text.replace(/\n/g, '\\n');
+    res.render('index', { graphDefinition: text2 });
+  } catch (e) {
+    if (e.message === 'Server says "ValidationError: Invalid record request"') {
+      return res.send('invalid pageId ' + req.params.pageid);
+    }
+    return res.send(e.message);
+  }
 });
