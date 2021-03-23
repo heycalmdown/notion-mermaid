@@ -11,7 +11,7 @@
     "debug": "2.6.9",
     "express": "4.16.4",
     "http-errors": "1.8.0",
-    "lodash": "4.17.20",
+    "lodash": "4.17.21",
     "markmap-lib": "0.4.2",
     "morgan": "1.9.1",
     "notionapi-agent": "1.2.0",
