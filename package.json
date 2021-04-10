@@ -14,7 +14,7 @@
     "lodash": "4.17.20",
     "markmap-lib": "0.4.2",
     "morgan": "1.9.1",
-    "notionapi-agent": "1.2.0",
+    "notionapi-agent": "1.2.1",
     "pug": "2.0.4"
   },
   "devDependencies": {
