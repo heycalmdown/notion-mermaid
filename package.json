@@ -12,7 +12,7 @@
     "express": "4.17.1",
     "http-errors": "1.8.0",
     "lodash": "4.17.21",
-    "markmap-lib": "0.4.2",
+    "markmap-lib": "0.14.3",
     "morgan": "1.9.1",
     "notionapi-agent": "1.2.0",
     "pug": "2.0.4"
