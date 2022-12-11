@@ -9,7 +9,7 @@
   "dependencies": {
     "cookie-parser": "1.4.5",
     "debug": "2.6.9",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "http-errors": "1.8.0",
     "lodash": "4.17.21",
     "markmap-lib": "0.4.2",
